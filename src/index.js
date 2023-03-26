@@ -4,16 +4,16 @@ import { fetchCountries } from './js/fetchCountries.js';
 import Notiflix from 'notiflix';
 
 const DEBOUNCE_DELAY = 300;
-const ulList = document.querySelector('.country-list');
+const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
-const input = document.querySelector('#search-box');
+const countryInput = document.querySelector('#search-box');
 
-input.addEventListener(
+countryInput.addEventListener(
   'input',
   debounce(() => {
-    ulList.innerHTML = '';
+    countryList.innerHTML = '';
     countryInfo.innerHTML = '';
-    const name = input.value.trim();
+    const name = countryInput.value.trim();
 
     if (name == '') {
       return;
@@ -64,7 +64,7 @@ function markupListCountries(array) {
         </li>`;
     })
     .join('');
-  ulList.insertAdjacentHTML('beforeend', markup);
+  countryList.insertAdjacentHTML('beforeend', markup);
 }
 
 function markupInfoCountries(array) {
